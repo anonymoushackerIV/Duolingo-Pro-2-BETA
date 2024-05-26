@@ -2941,8 +2941,8 @@ function OMEGA() {
                     //if (JSON.parse(localStorage.getItem('DuolingoProSettingsProBlockMode')) !== DuolingoProSettingsProBlockMode) {
                     //    settingsStuff("Duolingo Pro ProBlock", DuolingoProSettingsProBlockMode ? 'ON' : 'OFF');
                     //}
-                    //if (JSON.parse(localStorage.getItem('')) !== ) {
-                    //    settingsStuff("Duolingo Pro Shade Mode",  ? 'ON' : 'OFF');
+                    //if (JSON.parse(localStorage.getItem('DuolingoProShadeLessonsMode')) !== DuolingoProShadeLessonsMode) {
+                    //    settingsStuff("Duolingo Pro Shade Mode", DuolingoProShadeLessonsMode ? 'ON' : 'OFF');
                     //}
                     //if (JSON.parse(localStorage.getItem('DuolingoProAntiStuckProtectionMode')) !== DuolingoProAntiStuckProtectionMode) {
                     //    settingsStuff("Duolingo Pro AntiStuck Protection", DuolingoProAntiStuckProtectionMode ? 'ON' : 'OFF');
@@ -2952,10 +2952,9 @@ function OMEGA() {
                     }
 
                     localStorage.setItem('duopro.autoSolveDelay', solveSpeed);
-                    localStorage.setItem('', );
+                    localStorage.setItem('DuolingoProShadeLessonsMode', DuolingoProShadeLessonsMode);
                     //localStorage.setItem('AutoSolverSettingsLowPerformanceMode', AutoSolverSettingsLowPerformanceMode);
                     //localStorage.setItem('DuolingoProSettingsProBlockMode', DuolingoProSettingsProBlockMode);
-                    //localStorage.setItem('', );
                     localStorage.setItem('DuolingoProAntiStuckProtectionMode', DuolingoProAntiStuckProtectionMode);
                     localStorage.setItem('DLPOMEGA', DLPOMEGA);
 
@@ -2973,8 +2972,8 @@ function OMEGA() {
 
                 const DuolingoProSettingsBoxToggleT1ID1 = document.querySelector('#DuolingoProSettingsBoxToggleT1ID1');
                 DuolingoProSettingsBoxToggleT1ID1.addEventListener('click', () => {
-                     = !;
-                    updateDuolingoProSettingsToggle(1, DuolingoProSettingsBoxToggleT1ID1, );
+                    DuolingoProShadeLessonsMode = !DuolingoProShadeLessonsMode;
+                    updateDuolingoProSettingsToggle(1, DuolingoProSettingsBoxToggleT1ID1, DuolingoProShadeLessonsMode);
                 });
 
                 const DuolingoProSettingsBoxToggleT2ID2 = document.querySelector('#DuolingoProSettingsBoxToggleT2ID2');
@@ -3044,7 +3043,7 @@ function OMEGA() {
                 slideEventForT22();
 
                 function updateDuolingoProSettingsToggleAll() {
-                    updateDuolingoProSettingsToggle(1, DuolingoProSettingsBoxToggleT1ID1, );
+                    updateDuolingoProSettingsToggle(1, DuolingoProSettingsBoxToggleT1ID1, DuolingoProShadeLessonsMode);
                     updateDuolingoProSettingsToggle(2, DuolingoProSettingsBoxToggleT2ID2, solveSpeed);
                     updateDuolingoProSettingsToggle(1, DuolingoProSettingsBoxToggleT1ID2, DuolingoProAntiStuckProtectionMode);
                     updateDuolingoProSettingsToggle(1, DuolingoProSettingsBoxToggleT1ID3, DLPOMEGA);
@@ -3446,7 +3445,7 @@ function OMEGA() {
     let injectedDuolingoProShadeStyle = null;
 
     function injectDuolingoProShade() {
-        if ((window.location.pathname.includes('/lesson') || window.location.pathname.includes('/practice')) && autoSolverBoxAutomatedSolvingActive && ) {
+        if ((window.location.pathname.includes('/lesson') || window.location.pathname.includes('/practice')) && autoSolverBoxAutomatedSolvingActive && DuolingoProShadeLessonsMode) {
             if (!injectedDuolingoProShadeElement) {
                 injectedDuolingoProShadeElement = document.createElement('div');
                 injectedDuolingoProShadeElement.innerHTML = DuolingoProShadeHTML;
