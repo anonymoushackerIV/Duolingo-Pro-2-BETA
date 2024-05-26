@@ -753,7 +753,7 @@ function OMEGA() {
                     <div class="AutoSolverBoxRepeatNumberDisplay paragraphText noSelect" id="AutoSolverBoxNumberDisplayID">0</div>
                     <button class="AutoSolverBoxRepeatAmountButton activatorThingDPHDJ" id="DPASBauB1" aria-label="Add">+</button>
                     <button class="AutoSolverBoxRepeatAmountButton activatorThingDPHDJ" id="DPASBfmB1" aria-label="Toggle Infinity Mode" style="font-size: 20px;">∞</button>
-                    <button class="AutoSolverBoxRepeatAmountButton activatorThingDPHDJ" id="DLPIDxpMB1ID1" aria-label="Toggle XP Mode (not available yet)">XP</button>
+                    <button class="AutoSolverBoxRepeatAmountButton activatorThingDPHDJ" id="DLPIDxpMB1ID1" aria-label="Toggle XP Mode">XP</button>
                 </div>
                 <div class="AutoSolverBoxSectionThreeBoxSectionTwo" id="AutoSolverBoxSectionThreeBoxSectionTwoIDOne">
                     <div class="paragraphText noSelect textFill">Practice Only Mode</div>
