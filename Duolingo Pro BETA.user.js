@@ -5701,7 +5701,7 @@ function OMEGA() {
                     updateStuffVar = 'server network error';
                 }
             } catch (error) {
-                downloadStuffVar = 'error';
+                updateStuffVar = 'error';
             }
         } else if (option === 'download') {
             try {
@@ -5718,9 +5718,9 @@ function OMEGA() {
                     body: JSON.stringify(objectData)
                 });
                 if (response.ok) {
-                    updateStuffVar = 'true';
+                    downloadStuffVar = 'true';
                 } else {
-                    updateStuffVar = 'server network error';
+                    downloadStuffVar = 'server network error';
                 }
             } catch (error) {
                 downloadStuffVar = 'error';
