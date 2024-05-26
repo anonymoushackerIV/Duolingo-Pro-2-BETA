@@ -1025,6 +1025,24 @@ function OMEGA() {
     border-bottom: 2px solid rgb(var(--color-swan));
 }
 
+.AutoSolverBoxRepeatAmountButtonOffDeactive {
+    height: 46px;
+    margin-top: 2px;
+
+    border: 2px solid rgb(var(--color-swan));
+    background: rgb(var(--color-snow));
+
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+    color: rgb(var(--color-eel));
+}
+.AutoSolverBoxRepeatAmountButtonOffDeactive:hover {
+}
+.AutoSolverBoxRepeatAmountButtonOffDeactive:active {
+}
+
 
 .AutoSolverBoxRepeatNumberDisplay {
     position: relative;
@@ -1363,6 +1381,8 @@ function OMEGA() {
 
         function AutoSolverBoxForeverModeButtonUpdateFunc() {
             if (DuolingoProSettingsNeverEndMode) {
+                AutoSolverBoxXPModeButton.classList.add('AutoSolverBoxRepeatAmountButtonOffDeactive');
+
                 AutoSolverBoxForeverModeButton.classList.add('AutoSolverBoxRepeatAmountButtonActive');
                 try {
                     AutoSolverBoxForeverModeButton.classList.remove('AutoSolverBoxRepeatAmountButtonOff');
@@ -1377,6 +1397,10 @@ function OMEGA() {
                 AutoSolverBoxNumberDisplayID.textContent = "∞";
                 AutoSolverBoxNumberDisplayID.style.fontSize = '20px';
             } else {
+                try {
+                    AutoSolverBoxXPModeButton.classList.remove('AutoSolverBoxRepeatAmountButtonOffDeactive');
+                } catch (error) {}
+
                 AutoSolverBoxForeverModeButton.classList.add('AutoSolverBoxRepeatAmountButtonOff');
                 try {
                     AutoSolverBoxForeverModeButton.classList.remove('AutoSolverBoxRepeatAmountButtonActive');
@@ -1405,12 +1429,14 @@ function OMEGA() {
 
 
         AutoSolverBoxXPModeButton.addEventListener('click', () => {
-            DuolingoProSettingsXPMode = !DuolingoProSettingsXPMode;
-            somethingElse();
+            if (!DuolingoProSettingsNeverEndMode) {
+                DuolingoProSettingsXPMode = !DuolingoProSettingsXPMode;
+                somethingElse();
 
-            localStorage.setItem('DuolingoProSettingsXPMode', DuolingoProSettingsXPMode);
-            AutoSolverBoxXPModeButtonUpdateFunc();
-            something();
+                localStorage.setItem('DuolingoProSettingsXPMode', DuolingoProSettingsXPMode);
+                AutoSolverBoxXPModeButtonUpdateFunc();
+                something();
+            }
         });
 
         AutoSolverBoxRepeatNumberDownButton.addEventListener('click', () => {
@@ -5076,7 +5102,9 @@ function OMEGA() {
                     djhsafjkds.style.opacity = '1';
 
                     setTimeout(function() {
-                        initConfetti();
+                        setTimeout(function() {
+                            initConfetti();
+                        }, 500);
                     }, 200);
 
                     document.getElementById("NUIHB1ID1").addEventListener("click", function() {
