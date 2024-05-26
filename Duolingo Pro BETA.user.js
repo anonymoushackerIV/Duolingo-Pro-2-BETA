@@ -5734,7 +5734,9 @@ function OMEGAmaintainer() {
     if (JSON.parse(localStorage.getItem('DLPOMEGA')) === true) {
         if (document.readyState === "complete") {
             DLPOMEGA = true;
-            OMEGA();
+            setTimeout(function() {
+                OMEGA();
+            }, 1000);
         } else if (OMEGAmaintainerHelper <= 50) {
             OMEGAmaintainerHelper++;
             setTimeout(function() {
@@ -5744,7 +5746,9 @@ function OMEGAmaintainer() {
             //    OMEGA();
             //});
         } else {
-            OMEGA();
+            setTimeout(function() {
+                OMEGA();
+            }, 1000);
         }
     } else {
         DLPOMEGA = false;
