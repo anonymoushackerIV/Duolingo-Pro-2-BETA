@@ -4219,6 +4219,8 @@ function OMEGA() {
                 } else {
                     aQklgZktoyzqdZpz("Lesson", "Lessons");
                 }
+            } else if (DuolingoProSettingsXPMode) {
+                DLPCE728.textContent = String(autoSolverBoxRepeatAmount + ' XP Left');
             } else if (window.location.pathname === '/practice') {
                 aQklgZktoyzqdZpz("Practice", "Practices");
                 if (autoSolverBoxRepeatAmount === 1) {
@@ -4237,9 +4239,6 @@ function OMEGA() {
                 } else if (autoSolverBoxRepeatAmount) {
                     DLPCE728.textContent = String(autoSolverBoxRepeatAmount + ' Lessons Left');
                 }
-            }
-            if (DuolingoProSettingsXPMode) {
-                DLPCE728.textContent = String(autoSolverBoxRepeatAmount + ' XP Left');
             }
         } else {
             if (injectedDuolingoProCounterOneElement) {
