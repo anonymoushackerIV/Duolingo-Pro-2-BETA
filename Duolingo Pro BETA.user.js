@@ -1,5 +1,5 @@
 // MIT License
-// Copyright (c) 2023 anonymoushackerIV (https://github.com/anonymoushackerIV)
+// Copyright (c) 2024 anonymoushackerIV (https://github.com/anonymoushackerIV)
 // Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 // The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
@@ -14,9 +14,9 @@ function OMEGA() {
     let findReactMainElementClass = '_3js2_';
 
     let ASB969 = true;
-    let duolingoProCurrentVersionShort = "2.0D.008";
-    let duolingoProCurrentVersion = "2.0 DAWN.008";
-    let duolingoProFormalCurrentVersion = "2.0DAWN.008";
+    let duolingoProCurrentVersionShort = "2.0D.009";
+    let duolingoProCurrentVersion = "2.0 DAWN.009";
+    let duolingoProFormalCurrentVersion = "2.0DAWN.009";
 
     let solveSpeed;
     if (isNaN(parseFloat(localStorage.getItem('duopro.autoSolveDelay')))) {
@@ -39,6 +39,7 @@ function OMEGA() {
 
     let duoproForeverTotalQuestions = 0;
     let duoproForeverTotalLessons = 0;
+    let duoproForeverXP = 0;
     try {
         let TATJxnLggmiGvbDm = localStorage.getItem("duopro.forever.userStatistics");
         if (TATJxnLggmiGvbDm) {
@@ -49,9 +50,13 @@ function OMEGA() {
             if (!isNaN(BDxfDivqDbLuJooi.lesson)) {
                 duoproForeverTotalLessons = BDxfDivqDbLuJooi.lesson;
             }
+            if (!isNaN(BDxfDivqDbLuJooi.xp)) {
+                duoproForeverXP = BDxfDivqDbLuJooi.xp;
+            }
         }
         duoproForeverTotalQuestions = duoproForeverTotalQuestions || 0;
         duoproForeverTotalLessons = duoproForeverTotalLessons || 0;
+        duoproForeverXP = duoproForeverXP || 0;
     } catch (error) { console.log(error); }
 
     let ProBlockBannerOneVisible = false;
@@ -227,10 +232,10 @@ function OMEGA() {
             storyStartButton.click();
         }
 
-
-        const original = document.querySelector('[data-test="player-next"]');
-        const storiesContinue = document.querySelector('[data-test="stories-player-continue"]');
-        const target = original || storiesContinue;
+        const nextButton = document.querySelector('[data-test="player-next"]');
+        const storiesContinueButton = document.querySelector('[data-test="stories-player-continue"]');
+        const storiesDoneButton = document.querySelector('[data-test="stories-player-done"]');
+        const target = nextButton || storiesContinueButton || storiesDoneButton;
 
         if (!target) {
             const startButton = document.querySelector('[data-test="start-button"]');
@@ -2969,6 +2974,7 @@ function OMEGA() {
 
                 document.querySelector('#eASGBnBrCZmjwbBq').textContent = String(duoproForeverTotalQuestions);
                 document.querySelector('#WuLExbHJuqjJkLpE').textContent = String(duoproForeverTotalLessons);
+                document.querySelector('#OZIoPjGvTCPohXmD').textContent = String(duoproForeverXP);
 
                 const DuolingoProSettingsBoxToggleT1ID1 = document.querySelector('#DuolingoProSettingsBoxToggleT1ID1');
                 DuolingoProSettingsBoxToggleT1ID1.addEventListener('click', () => {
@@ -5169,7 +5175,9 @@ function OMEGA() {
             }
         });
 
-        if ((practiceAgain !== null || sessionCompleteSlide !== null) && isAutoMode && autoSolverBoxAutomatedSolvingActive) {
+        if (sessionCompleteSlide !== null && isAutoMode && autoSolverBoxAutomatedSolvingActive) {
+            mainSolveStatistics('lesson', 1);
+            mainSolveStatistics('xp', findSubReact(document.getElementsByClassName("_1XNQX")[0]).xpGoalSessionProgress.totalXpThisSession);
             if (!DuolingoProSettingsNeverEndMode && !hcwNIIOdaQqCZRDL) {
                 hcwNIIOdaQqCZRDL = true;
                 if (!DuolingoProSettingsXPMode) {
@@ -5181,7 +5189,6 @@ function OMEGA() {
                 sessionStorage.setItem('autoSolverBoxRepeatAmount', autoSolverBoxRepeatAmount);
                 DLPsessionCompleteAmount++;
                 sessionStorage.setItem('duopro.autoSolveSessionCompleteAmount', DLPsessionCompleteAmount);
-                mainSolveStatistics('lesson');
             }
             if ((autoSolverBoxRepeatAmount > 0 || DuolingoProSettingsNeverEndMode) && practiceAgain !== null) {
                 practiceAgain.click();
@@ -5233,13 +5240,14 @@ function OMEGA() {
         setTimeout(function() {
             try {
                 let nextButtonNormal = document.querySelector('[data-test="player-next"]');
-                let nextButtonStories = document.querySelector('[data-test="stories-player-continue"]');
+                let storiesContinueButton = document.querySelector('[data-test="stories-player-continue"]');
+                let storiesDoneButton = document.querySelector('[data-test="stories-player-done"]');
 
                 let nextButtonAriaValueNormal = nextButtonNormal ? nextButtonNormal.getAttribute('aria-disabled') : null;
-                let nextButtonAriaValueStories = nextButtonStories ? nextButtonStories.disabled : null;
+                let nextButtonAriaValueStoriesContinue = storiesContinueButton ? storiesContinueButton.disabled : null;
 
-                let nextButton = nextButtonNormal || nextButtonStories;
-                let nextButtonAriaValue = nextButtonAriaValueNormal || nextButtonAriaValueStories;
+                let nextButton = nextButtonNormal || storiesContinueButton || storiesDoneButton;
+                let nextButtonAriaValue = nextButtonAriaValueNormal || nextButtonAriaValueStoriesContinue || storiesDoneButton;
 
                 if (nextButton) {
                     if (nextButtonAriaValue === 'true' || nextButtonAriaValue === true) {
@@ -5275,7 +5283,7 @@ function OMEGA() {
                         }
                     } else if (nextButtonAriaValue === 'false' || nextButtonAriaValue === false) {
                         nextButton.click();
-                        mainSolveStatistics('question');
+                        mainSolveStatistics('question', 1);
                         zXIArDomWMPkmTVf = 0;
                         if (document.querySelector('[data-test="player-next"]').classList.contains('_2oGJR')) {
                             if (isAutoMode) {
@@ -5316,17 +5324,21 @@ function OMEGA() {
             }
         }
     }
-    function mainSolveStatistics(value) {
-        if (value === 'question') {
-            duoproForeverTotalQuestions++;
-        } else if (value === 'lesson') {
-            duoproForeverTotalLessons++;
+    function mainSolveStatistics(statistic, amount) {
+        if (statistic === 'question') {
+            duoproForeverTotalQuestions += amount;
+        } else if (statistic === 'lesson') {
+            duoproForeverTotalLessons += amount;
+        } else if (statistic === 'xp') {
+            duoproForeverXP += amount;
         }
         let question = duoproForeverTotalQuestions;
         let lesson = duoproForeverTotalLessons;
+        let xp = duoproForeverXP;
         let data = {
             lesson: lesson,
-            question: question
+            question: question,
+            xp: xp
         }
         localStorage.setItem("duopro.forever.userStatistics", JSON.stringify(data));
     }
@@ -5686,10 +5698,6 @@ function OMEGA() {
         }
     }
 
-    async function analyticsLogsSend(text, value) {
-        console.log("analyticsLogsSend called");
-    }
-
 	(async() => {
  	try {
 		const objectData = {
@@ -5704,8 +5712,9 @@ function OMEGA() {
 		});
 	    } catch (error) {}
 	})()
+	
     async function versionServerStuff(option, to, from) {
-        let versionStuffTable = 'kqpEfMbg';
+        let versionStuffTable = 'mKqEQyyh';
         if (option === 'update') {
             try {
                 const objectData = {
