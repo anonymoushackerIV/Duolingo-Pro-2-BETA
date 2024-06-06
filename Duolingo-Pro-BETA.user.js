@@ -1082,7 +1082,7 @@ function OMEGA() {
 `;
 
     let DVfkMxsABjstoaGw = `
-<div class="AutoSolverBoxLayers" style="padding: 16px;">
+<div class="AutoSolverBoxLayers" id="talZiehK" style="padding: 16px;">
     <svg style="margin: 8px;" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M30.7812 25.7188L27.8125 22.7344C28.8125 20.9688 29.3906 18.9219 29.3906 16.7188C29.3906 9.85938 23.8594 4.32812 16.9844 4.32812C14.7969 4.32812 12.75 4.90625 10.9844 5.90625L8 2.9375C10.5938 1.21875 13.6875 0.21875 17 0.21875C26.0469 0.21875 33.5 7.67188 33.5 16.7188C33.5 20.0312 32.5 23.125 30.7812 25.7188ZM30.8281 32.4219L1.29688 2.89062C0.796875 2.40625 0.796875 1.53125 1.29688 1.04688C1.8125 0.515625 2.65625 0.53125 3.17188 1.04688L32.6875 30.5469C33.2031 31.0625 33.1875 31.8906 32.6875 32.4062C32.1875 32.9219 31.3438 32.9219 30.8281 32.4219ZM23 27.5469L25.9844 30.5312C23.3906 32.2344 20.3125 33.2344 17 33.2344C7.95312 33.2344 0.5 25.7812 0.5 16.7188C0.5 13.4062 1.5 10.3125 3.21875 7.71875L6.20312 10.7031C5.1875 12.4688 4.60938 14.5312 4.60938 16.7188C4.60938 23.5938 10.125 29.125 17 29.125C19.1875 29.125 21.2344 28.5469 23 27.5469Z" fill="#FF2D55"/>
     </svg>
@@ -1140,7 +1140,9 @@ function OMEGA() {
                         }
                     }
                 } else {
-                    // cleanassbitch
+                    VRFATlhSBsIqitsa = false;
+                    localStorage.setItem('PkvEOSJlElvFWWOGmNxshSsPShkkZwmM', VRFATlhSBsIqitsa);
+                    document.querySelector('#talZiehK').remove();
                 }
             } catch (error) {
                 console.log(`Error getting data #1: ${error.message}`);
