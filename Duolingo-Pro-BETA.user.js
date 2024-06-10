@@ -222,17 +222,11 @@ function OMEGA() {
     }
 
     function addButtons() {
-        if (window.location.pathname === '/learn' && document.querySelector('a[data-test="global-practice"]')) {
-            return;
-        }
-        if (document.querySelector("#solveAllButton")) {
-            return;
-        }
+        if (window.location.pathname === '/learn' && document.querySelector('a[data-test="global-practice"]')) return;
+        if (document.querySelector("#solveAllButton")) return;
 
         let storyStartButton = document.querySelector('[data-test="story-start"]');
-        if (storyStartButton) {
-            storyStartButton.click();
-        }
+        if (storyStartButton) storyStartButton.click();
 
         const nextButton = document.querySelector('[data-test="player-next"]');
         const storiesContinueButton = document.querySelector('[data-test="stories-player-continue"]');
