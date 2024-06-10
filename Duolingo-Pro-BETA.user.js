@@ -262,8 +262,7 @@ function OMEGA() {
                 findReactMainElementClass = 'wqSzE';
                 document.querySelector('.MYehf').style.display = "flex";
                 document.querySelector('.MYehf').style.gap = "20px";
-            } else if (document.querySelector(".FmlUF") !== null) {
-                // Story
+            } else if (document.querySelector(".FmlUF") !== null) { // Story
                 findReactMainElementClass = '_3TJzR';
                 document.querySelector('._3TJzR').style.display = "flex";
                 document.querySelector('._3TJzR').style.gap = "20px";
@@ -271,45 +270,45 @@ function OMEGA() {
 
             const buttonsCSS = document.createElement('style');
             buttonsCSS.innerHTML = `
-        .solve-btn {
-            position: relative;
-            min-width: 150px;
-            font-size: 17px;
-            border: none;
-            border-bottom: 4px solid #2b70c9;
-            border-radius: 16px;
-            padding: 13px 16px;
-            transition: filter .0s;
-            font-weight: 700;
-            letter-spacing: .8px;
-            background: #1cb0f6;
-            color: rgb(var(--color-snow));
-            cursor: pointer;
-        }
-        .pause-btn {
-            position: relative;
-            min-width: 100px;
-            font-size: 17px;
-            border: none;
-            border-bottom: 4px solid #ff9600;
-            border-radius: 16px;
-            padding: 13px 16px;
-            transition: filter .0s;
-            font-weight: 700;
-            letter-spacing: .8px;
-            background: #ffc800;
-            color: rgb(var(--color-snow));
-            cursor: pointer;
-        }
-        .auto-solver-btn:hover {
-            filter: brightness(1.1);
-        }
-        .auto-solver-btn:active {
-            border-bottom: 0px;
-            margin-bottom: 4px;
-            top: 4px;
-        }
-        `;
+            .solve-btn {
+                position: relative;
+                min-width: 150px;
+                font-size: 17px;
+                border: none;
+                border-bottom: 4px solid #2b70c9;
+                border-radius: 16px;
+                padding: 13px 16px;
+                transition: filter .0s;
+                font-weight: 700;
+                letter-spacing: .8px;
+                background: #1cb0f6;
+                color: rgb(var(--color-snow));
+                cursor: pointer;
+            }
+            .pause-btn {
+                position: relative;
+                min-width: 100px;
+                font-size: 17px;
+                border: none;
+                border-bottom: 4px solid #ff9600;
+                border-radius: 16px;
+                padding: 13px 16px;
+                transition: filter .0s;
+                font-weight: 700;
+                letter-spacing: .8px;
+                background: #ffc800;
+                color: rgb(var(--color-snow));
+                cursor: pointer;
+            }
+            .auto-solver-btn:hover {
+                filter: brightness(1.1);
+            }
+            .auto-solver-btn:active {
+                border-bottom: 0px;
+                margin-bottom: 4px;
+                top: 4px;
+            }
+            `;
             document.head.appendChild(buttonsCSS);
 
             const solveCopy = createButton('solveAllButton', solvingIntervalId ? 'PAUSE SOLVE' : 'SOLVE ALL', 'auto-solver-btn solve-btn', {
