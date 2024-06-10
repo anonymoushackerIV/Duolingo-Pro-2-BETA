@@ -235,9 +235,7 @@ function OMEGA() {
 
         if (!target) {
             const startButton = document.querySelector('[data-test="start-button"]');
-            if (!startButton) {
-                return;
-            }
+            if (!startButton) return;
             const solveAllButton = createButton("solveAllButton", "COMPLETE SKILL", "solve-all-btn", {
                 'click': () => {
                     solving(true);
